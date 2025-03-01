@@ -1,0 +1,129 @@
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+ 
+local PhantomForcesWindow = Library:NewWindow("Heartland Arcade")
+ 
+local KillingCheats = PhantomForcesWindow:NewSection("Hearts 1-5")
+
+KillingCheats:CreateButton("Heart 1", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart1")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 2", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart2")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 3", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart3")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 4", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart4")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 5", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart5")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Hearts 6-10")
+
+KillingCheats:CreateButton("Heart 6", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart6")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 7", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart7")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 8", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart8")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 9", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart9")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+KillingCheats:CreateButton("Heart 10", function()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart10")
+local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+if targetPart then
+    character:MoveTo(targetPart.Position)
+end
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Functions")
+
+KillingCheats:CreateButton("Run", function()
+game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(40, 47, -79)))
+end)
+
+KillingCheats:CreateButton("Paineis", function()
+game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(22, 43, 95)))
+end)
+
+KillingCheats:CreateButton("Locker", function()
+game:GetService("ReplicatedStorage").Events.LockerEvent:FireServer()
+end)
+
+KillingCheats:CreateButton("Keycard", function()
+game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(-50, 31, -33)))
+end)
+
+KillingCheats:CreateButton("Back To Game", function() 
+ game:GetService('TeleportService'):Teleport(16025511657, LocalPlayer)
+end)
