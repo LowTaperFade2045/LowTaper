@@ -97,12 +97,19 @@ end
 end)
 
 KillingCheats:CreateButton("Heart 10", function()
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart10")
+local Players = game:GetService("Players")
+local TeleportService = game:GetService("TeleportService")
+local player = Players.LocalPlayer
+
+local heartModel = workspace:WaitForChild("Map"):WaitForChild("Heart10")
 local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
+
 if targetPart then
-    character:MoveTo(targetPart.Position)
+    targetPart.Touched:Connect(function(hit)
+        if hit and hit:IsDescendantOf(player.Character) then
+            TeleportService:Teleport(16025511657, player)
+        end
+    end)
 end
 end)
 
@@ -124,6 +131,151 @@ KillingCheats:CreateButton("Keycard", function()
 game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(-50, 31, -33)))
 end)
 
-KillingCheats:CreateButton("Back To Game", function() 
- game:GetService('TeleportService'):Teleport(16025511657, LocalPlayer)
+local KillingCheats = PhantomForcesWindow:NewSection("Auto Boxs")
+
+KillingCheats:CreateButton("Pie Boxs", function()
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+local function teleportTo(part)
+    if part and HumanoidRootPart then
+        HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 3, 0)
+        wait(0.5)
+    end
+end
+
+local function activate(prompt)
+    if prompt and prompt:IsA("ProximityPrompt") then
+        fireproximityprompt(prompt, 0)
+        wait(1)
+    end
+end
+
+local mapFolder = Workspace:WaitForChild("Map")
+local pieDestination = mapFolder:WaitForChild("Conveyors"):WaitForChild("Pie")
+local activated = 0
+local usedBoxes = {}
+
+for _, box in ipairs(mapFolder:GetChildren()) do
+    if activated >= 5 then break end
+    if box:IsA("Model") and box.Name == "PieBox" and not table.find(usedBoxes, box) then
+        local mesh = box:FindFirstChildWhichIsA("MeshPart")
+        if mesh then
+            local prompt = mesh:FindFirstChildOfClass("ProximityPrompt")
+            if prompt and prompt.Enabled then
+                teleportTo(mesh)
+                activate(prompt)
+                local piePrompt = pieDestination:FindFirstChildOfClass("ProximityPrompt")
+                if piePrompt then
+                    teleportTo(pieDestination)
+                    activate(piePrompt)
+                end
+                table.insert(usedBoxes, box)
+                activated += 1
+                wait(1)
+            end
+        end
+    end
+end
+end)
+
+KillingCheats:CreateButton("Icescream Boxs", function()
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+local function teleportTo(part)
+    if part and HumanoidRootPart then
+        HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 3, 0)
+        wait(0.5)
+    end
+end
+
+local function activate(prompt)
+    if prompt and prompt:IsA("ProximityPrompt") then
+        fireproximityprompt(prompt, 0)
+        wait(1)
+    end
+end
+
+local mapFolder = Workspace:WaitForChild("Map")
+local targetPart = mapFolder:WaitForChild("Conveyors"):WaitForChild("Icescream")
+local activated = 0
+local usedBoxes = {}
+
+for _, box in ipairs(mapFolder:GetChildren()) do
+    if activated >= 5 then break end
+    if box:IsA("Model") and box.Name == "IcescreamBox" and not table.find(usedBoxes, box) then
+        local mesh = box:FindFirstChildWhichIsA("MeshPart")
+        if mesh then
+            local prompt = mesh:FindFirstChildOfClass("ProximityPrompt")
+            if prompt and prompt.Enabled then
+                teleportTo(mesh)
+                activate(prompt)
+                local finalPrompt = targetPart:FindFirstChildOfClass("ProximityPrompt")
+                if finalPrompt then
+                    teleportTo(targetPart)
+                    activate(finalPrompt)
+                end
+                table.insert(usedBoxes, box)
+                activated += 1
+                wait(1)
+            end
+        end
+    end
+end
+end)
+
+KillingCheats:CreateButton("Bear Boxs", function()
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+local function teleportTo(part)
+    if part and HumanoidRootPart then
+        HumanoidRootPart.CFrame = part.CFrame + Vector3.new(0, 3, 0)
+        wait(0.5)
+    end
+end
+
+local function activate(prompt)
+    if prompt and prompt:IsA("ProximityPrompt") then
+        fireproximityprompt(prompt, 0)
+        wait(1)
+    end
+end
+
+local mapFolder = Workspace:WaitForChild("Map")
+local targetPart = mapFolder:WaitForChild("Conveyors"):WaitForChild("Bear")
+local activated = 0
+local usedBoxes = {}
+
+for _, box in ipairs(mapFolder:GetChildren()) do
+    if activated >= 5 then break end
+    if box:IsA("Model") and box.Name == "BearBox" and not table.find(usedBoxes, box) then
+        local mesh = box:FindFirstChildWhichIsA("MeshPart")
+        if mesh then
+            local prompt = mesh:FindFirstChildOfClass("ProximityPrompt")
+            if prompt and prompt.Enabled then
+                teleportTo(mesh)
+                activate(prompt)
+                local finalPrompt = targetPart:FindFirstChildOfClass("ProximityPrompt")
+                if finalPrompt then
+                    teleportTo(targetPart)
+                    activate(finalPrompt)
+                end
+                table.insert(usedBoxes, box)
+                activated += 1
+                wait(1)
+            end
+        end
+    end
+end
 end)
