@@ -97,19 +97,14 @@ end
 end)
 
 KillingCheats:CreateButton("Heart 10", function()
-local Players = game:GetService("Players")
-local TeleportService = game:GetService("TeleportService")
-local player = Players.LocalPlayer
-
-local heartModel = workspace:WaitForChild("Map"):WaitForChild("Heart10")
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart9")
 local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
-
 if targetPart then
-    targetPart.Touched:Connect(function(hit)
-        if hit and hit:IsDescendantOf(player.Character) then
-            TeleportService:Teleport(16025511657, player)
-        end
-    end)
+    character:MoveTo(targetPart.Position)
+    task.wait(3)
+    game:GetService("TeleportService"):Teleport(16025511657, player)
 end
 end)
 
