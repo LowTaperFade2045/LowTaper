@@ -99,12 +99,10 @@ end)
 KillingCheats:CreateButton("Heart 10", function()
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
-local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart9")
+local heartModel = game.Workspace:WaitForChild("Map"):WaitForChild("Heart10")
 local targetPart = heartModel:FindFirstChildWhichIsA("BasePart") or heartModel:FindFirstChildWhichIsA("Part")
 if targetPart then
     character:MoveTo(targetPart.Position)
-    task.wait(3)
-    game:GetService("TeleportService"):Teleport(16025511657, player)
 end
 end)
 
@@ -114,7 +112,7 @@ KillingCheats:CreateButton("Run", function()
 game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(40, 47, -79)))
 end)
 
-KillingCheats:CreateButton("Paineis", function()
+KillingCheats:CreateButton("TP To Panel", function()
 game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(22, 43, 95)))
 end)
 
@@ -124,6 +122,13 @@ end)
 
 KillingCheats:CreateButton("Keycard", function()
 game.Players.LocalPlayer.Character:PivotTo(CFrame.new(Vector3.new(-50, 31, -33)))
+end)
+
+KillingCheats:CreateButton("Back To Game", function()
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+
+TeleportService:Teleport(16025511657, Players.LocalPlayer)
 end)
 
 local KillingCheats = PhantomForcesWindow:NewSection("Auto Boxs")
@@ -272,5 +277,130 @@ for _, box in ipairs(mapFolder:GetChildren()) do
             end
         end
     end
+end
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Panels")
+
+KillingCheats:CreateButton("Auto Panel 1", function()
+local player = game.Players.LocalPlayer
+local hrp = player.Character or player.CharacterAdded:Wait()
+hrp = hrp:WaitForChild("HumanoidRootPart")
+
+local clicks = {
+	Part1 = 1, Part2 = 5, Part3 = 5, Part4 = 5, Part5 = 1, Part6 = 2,
+	Part7 = 4, Part8 = 4, Part9 = 4, Part10 = 2, Part11 = 5, Part12 = 4,
+	Part13 = 5, Part14 = 4, Part15 = 5, Part16 = 2, Part17 = 4, Part18 = 5,
+	Part19 = 4, Part20 = 2, Part21 = 2, Part22 = 4, Part23 = 4, Part24 = 4,
+	Part25 = 2, Part26 = 3, Part27 = 5, Part28 = 5, Part29 = 5, Part30 = 3,
+}
+
+local map = workspace:FindFirstChild("Map")
+if not map then return warn("Map not found") end
+
+local closest, minDist = nil, math.huge
+for _, m in ipairs(map:GetDescendants()) do
+	if m:IsA("Model") and m.Name == "Panel" then
+		local p = m:FindFirstChildWhichIsA("BasePart", true)
+		if p then
+			local dist = (p.Position - hrp.Position).Magnitude
+			if dist < minDist then closest, minDist = m, dist end
+		end
+	end
+end
+
+if closest then
+	for name, amount in pairs(clicks) do
+		local part = closest:FindFirstChild(name, true)
+		local cd = part and part:FindFirstChildOfClass("ClickDetector")
+		if cd then
+			for i = 1, amount do
+				fireclickdetector(cd)
+				task.wait(0.1)
+			end
+		end
+	end
+end
+end)
+
+KillingCheats:CreateButton("Auto Panel 2", function()
+local player = game.Players.LocalPlayer
+local hrp = player.Character or player.CharacterAdded:Wait()
+hrp = hrp:WaitForChild("HumanoidRootPart")
+
+local clicks = {
+	Part1 = 3, Part2 = 3, Part3 = 3, Part4 = 2, Part5 = 2, Part6 = 3,
+	Part7 = 3, Part8 = 4, Part9 = 2, Part10 = 2, Part11 = 4, Part12 = 4,
+	Part13 = 4, Part14 = 4, Part15 = 4, Part16 = 1, Part17 = 5, Part18 = 5,
+	Part19 = 1, Part20 = 1, Part21 = 1, Part22 = 5, Part23 = 5, Part24 = 1,
+	Part25 = 1, Part26 = 5, Part27 = 5, Part28 = 5, Part29 = 5, Part30 = 5,
+}
+
+local map = workspace:FindFirstChild("Map")
+if not map then return warn("Map not found") end
+
+local closest, minDist = nil, math.huge
+for _, m in ipairs(map:GetDescendants()) do
+	if m:IsA("Model") and m.Name == "Panel" then
+		local p = m:FindFirstChildWhichIsA("BasePart", true)
+		if p then
+			local dist = (p.Position - hrp.Position).Magnitude
+			if dist < minDist then closest, minDist = m, dist end
+		end
+	end
+end
+
+if closest then
+	for name, amount in pairs(clicks) do
+		local part = closest:FindFirstChild(name, true)
+		local cd = part and part:FindFirstChildOfClass("ClickDetector")
+		if cd then
+			for i = 1, amount do
+				fireclickdetector(cd)
+				task.wait(0.1)
+			end
+		end
+	end
+end
+end)
+
+KillingCheats:CreateButton("Auto Panel 3", function()
+local player = game.Players.LocalPlayer
+local hrp = player.Character or player.CharacterAdded:Wait()
+hrp = hrp:WaitForChild("HumanoidRootPart")
+
+local clicks = {
+	Part1 = 4, Part2 = 2, Part3 = 1, Part4 = 3, Part5 = 5, Part6 = 4,
+	Part7 = 2, Part8 = 1, Part9 = 3, Part10 = 5, Part11 = 4, Part12 = 2,
+	Part13 = 1, Part14 = 3, Part15 = 3, Part16 = 4, Part17 = 2, Part18 = 1,
+	Part19 = 1, Part20 = 1, Part21 = 4, Part22 = 2, Part23 = 2, Part24 = 2,
+	Part25 = 2, Part26 = 4, Part27 = 4, Part28 = 4, Part29 = 4, Part30 = 4,
+}
+
+local map = workspace:FindFirstChild("Map")
+if not map then return warn("Map not found") end
+
+local closest, minDist = nil, math.huge
+for _, m in ipairs(map:GetDescendants()) do
+	if m:IsA("Model") and m.Name == "Panel" then
+		local p = m:FindFirstChildWhichIsA("BasePart", true)
+		if p then
+			local dist = (p.Position - hrp.Position).Magnitude
+			if dist < minDist then closest, minDist = m, dist end
+		end
+	end
+end
+
+if closest then
+	for name, amount in pairs(clicks) do
+		local part = closest:FindFirstChild(name, true)
+		local cd = part and part:FindFirstChildOfClass("ClickDetector")
+		if cd then
+			for i = 1, amount do
+				fireclickdetector(cd)
+				task.wait(0.1)
+			end
+		end
+	end
 end
 end)
